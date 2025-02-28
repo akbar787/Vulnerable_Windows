@@ -1,4 +1,4 @@
-__Overview__
+<h1>Overview</h1>
 
 This setup.bat script is part of a Local Privilege Escalation (LPE) workshop, originally created by Sagi Shahar (@s4gi_) and Tib3rius (@tibsec). It intentionally introduces multiple security misconfigurations in a freshly installed Windows 10 machine, allowing for exploitation in a controlled environment.
 
@@ -57,7 +57,7 @@ Ensure you are using an isolated virtual machine. Then, execute the script as an
 **2️⃣ Verify Misconfigurations**
 Use PowerShell to check for vulnerabilities:
 
-Invoke-AllChecks
+`Invoke-AllChecks`
 
 **3️⃣ Exploit the Vulnerabilities**
 Use tools like:
@@ -66,7 +66,7 @@ Use tools like:
 
 `PowerUp.ps1`
 
-`mimikatz1
+`mimikatz`
 
 `crackmapexec`
 
