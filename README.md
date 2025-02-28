@@ -53,3 +53,29 @@ Ensure you are using an **isolated virtual machine**. Then, execute the script a
 ```bash
 setup.bat
 
+### 2️⃣ Verify Misconfigurations
+Use PowerShell to check for vulnerabilities:
+```cmd
+Invoke-AllChecks
+
+### 3️⃣ Exploit the Vulnerabilities
+Use tools like:
+Tool	Purpose
+```bash
+Metasploit
+Exploitation framework for privilege escalation
+```cmd
+PowerUp.ps1
+PowerShell script for privilege escalation checks
+```cmd
+mimikatz	Extract credentials from memory
+```bash
+crackmapexec
+Post-exploitation, lateral movement, and enumeration
+
+### ⚠️ Disclaimer
+This script is for educational and security research purposes only.
+❌ Do not use it on unauthorized systems.
+The author is not responsible for any misuse or damage caused by this script.
+
+
