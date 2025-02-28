@@ -51,12 +51,12 @@ This script sets up a Windows machine with various **local privilege escalation 
 Ensure you are using an **isolated virtual machine**. Then, execute the script as an administrator:  
 
 ```bash
-setup.bat
+PS C:\Users\akbar>setup.bat
 
 ### 2️⃣ Verify Misconfigurations
 Use PowerShell to check for vulnerabilities:
 
-Invoke-AllChecks
+PS C:\Users\akbar>Invoke-AllChecks
 
 ### 3️⃣ Exploit the Vulnerabilities
 Use tools like:
