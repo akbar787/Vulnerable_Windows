@@ -62,13 +62,13 @@ Invoke-AllChecks
 **3️⃣ Exploit the Vulnerabilities**
 Use tools like:
 
-'Metasploit'
+`Metasploit`
 
-'PowerUp.ps1'
+`PowerUp.ps1`
 
-'mimikatz'
+`mimikatz1
 
-'crackmapexec'
+`crackmapexec`
 
 **Remediation**
 
