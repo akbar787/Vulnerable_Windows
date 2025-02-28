@@ -1,55 +1,107 @@
-**Windows 10 Misconfiguration Setup
-**
 Overview
 
-This setup.bat script is designed to intentionally introduce multiple security misconfigurations in a freshly installed Windows 10 machine. These misconfigurations can be exploited for penetration testing, red teaming, or security research.
+This setup.bat script is part of a Local Privilege Escalation (LPE) workshop, originally created by Sagi Shahar (@s4gi_) and Tib3rius (@tibsec). It intentionally introduces multiple security misconfigurations in a freshly installed Windows 10 machine, allowing for exploitation in a controlled environment.
 
-Features & Misconfigurations Introduced
+The goal is to simulate real-world security flaws for penetration testers, ethical hackers, and security researchers.
+
+What This Script Does
+
+This script sets up a Windows machine with various local privilege escalation (LPE) vulnerabilities, including:
 
 1️⃣ Unquoted Service Paths
 
-Creates a service with an unquoted executable path, making it vulnerable to privilege escalation.
+Creates a vulnerable Windows service with an unquoted executable path.
 
-Allows an attacker to place a malicious executable in a writable directory and gain SYSTEM privileges.
+Allows attackers to hijack execution by placing malicious executables in directories with spaces.
 
-2️⃣ Weak File Permissions on Executables
+2️⃣ Weak File and Folder Permissions
 
-Modifies ACLs (Access Control Lists) to allow Authenticated Users to modify critical executable files.
+Modifies ACLs (Access Control Lists) to allow Authenticated Users to modify system files.
 
-Allows privilege escalation by replacing the executable with a malicious payload.
+Attackers can replace system files with malicious payloads for privilege escalation.
 
-3️⃣ Weak Registry Permissions
+3️⃣ Weak Registry Key Permissions
 
 Grants full control to Authenticated Users on specific registry keys.
 
-Enables attackers to modify service paths, allowing for persistence and privilege escalation.
+Attackers can modify service configurations to execute arbitrary code.
 
 4️⃣ Stored Credentials in Plaintext
 
-Creates a user with a hardcoded weak password.
+Creates a user account with a weak password.
 
-Stores credentials in plaintext files that can be retrieved using tools like mimikatz.
+Stores credentials in plaintext locations that tools like mimikatz can retrieve.
 
-5️⃣ Enables SMBv1 (Insecure Protocol)
+5️⃣ Enables SMBv1 (Legacy and Insecure Protocol)
 
-Enables SMBv1, which is vulnerable to exploits like EternalBlue.
+Re-enables SMBv1, making the system vulnerable to exploits like EternalBlue.
 
 Allows lateral movement and remote code execution (RCE).
 
-6️⃣ Disables Windows Defender & Security Features
+6️⃣ Disables Windows Defender and Security Features
 
-Disables Windows Defender real-time protection.
+Turns off Windows Defender’s real-time protection.
 
-Turns off UAC (User Account Control) to allow execution of malicious scripts without prompts.
+Disables User Account Control (UAC) to allow scripts to run without admin prompts.
 
-7️⃣ Adds Insecure Scheduled Tasks
+7️⃣ Creates Insecure Scheduled Tasks
 
-Creates a scheduled task running as SYSTEM that executes a user-modifiable script.
+Configures a scheduled task to run as SYSTEM using a user-modifiable script.
 
-Can be exploited for privilege escalation.
+Can be exploited to execute arbitrary code with SYSTEM privileges.
 
 8️⃣ Weak Network Share Permissions
 
-Shares folders with Everyone: Full Control permissions.
+Shares system folders with Everyone: Full Control permissions.
 
-Allows attackers to upload or modify files remotely.
+Attackers can upload or modify files remotely.
+
+How to Use
+
+1️⃣ Run the Script
+
+Ensure you are using an isolated virtual machine. Then, execute the script as an administrator:
+
+setup.bat
+
+2️⃣ Verify Misconfigurations
+
+Use PowerShell to check for vulnerabilities:
+
+Invoke-AllChecks
+
+3️⃣ Exploit the Vulnerabilities
+
+Use tools like:
+
+Metasploit
+
+PowerUp.ps1
+
+mimikatz
+
+crackmapexec
+
+Remediation
+
+To harden the system after testing, follow these steps:
+
+Re-enable security settings (Windows Defender, UAC, SMBv2).
+
+Restrict file and registry permissions using Group Policy or PowerShell.
+
+Remove unquoted service paths and reconfigure services securely.
+
+Disable unnecessary network shares.
+
+Disclaimer
+
+This script is for educational and security research purposes only. Do not use it on unauthorized systems. The author is not responsible for any misuse or damage caused by this script.
+
+Next Steps
+
+Test privilege escalation using PowerUp.ps1 as show in the document.
+
+Attempt local and remote exploitation scenarios.
+
+Reverse the misconfigurations to understand system hardening techniques.
