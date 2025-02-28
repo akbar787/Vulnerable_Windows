@@ -1,4 +1,5 @@
-Windows 10 Misconfiguration Setup
+**Windows 10 Misconfiguration Setup
+**
 Overview
 
 This setup.bat script is designed to intentionally introduce multiple security misconfigurations in a freshly installed Windows 10 machine. These misconfigurations can be exploited for penetration testing, red teaming, or security research.
