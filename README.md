@@ -55,21 +55,21 @@ setup.bat
 
 ### 2️⃣ Verify Misconfigurations
 Use PowerShell to check for vulnerabilities:
-```cmd
+
 Invoke-AllChecks
 
 ### 3️⃣ Exploit the Vulnerabilities
 Use tools like:
-Tool	Purpose
-```bash
+
 Metasploit
 Exploitation framework for privilege escalation
-```cmd
-PowerUp.ps1
+
+## PowerUp.ps1
 PowerShell script for privilege escalation checks
-```cmd
-mimikatz	Extract credentials from memory
-```bash
+
+## mimikatz
+Extract credentials from memory
+
 crackmapexec
 Post-exploitation, lateral movement, and enumeration
 
